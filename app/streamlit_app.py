@@ -19,7 +19,7 @@ st.set_page_config(
 def load_models():
     with open("notebooks/models/scaler.pkl", "rb") as f:
         scaler = pickle.load(f)
-    with open("notebooks/models/scaler.pkl", "rb") as f:
+    with open("notebooks/models/final_model.pkl", "rb") as f:  # ← final_model
         modelo = pickle.load(f)
     return scaler, modelo
 
