@@ -52,7 +52,7 @@ cell nucleus measurements from a Fine Needle Aspiration (FNA) biopsy.
 st.divider()
 
 # Sidebar, inputs del usuario
-st.sidebar.header("🧬 Cell Nucleus Measurements")
+st.sidebar.header("Cell Nucleus Measurements")
 st.sidebar.markdown("Adjust the values based on the biopsy report.")
 
 
@@ -97,14 +97,14 @@ with col2:
 st.divider()
 
 # SHAP local
-st.subheader("🔍 Why did the model predict this?")
+st.subheader("Why did the model predict this?")
 st.markdown(
     "The chart below shows which features pushed the prediction toward malignant or benign.")
 
 explainer = shap.LinearExplainer(modelo, X_ref_scaled)
 shap_values = explainer.shap_values(input_scaled)
 
-fig, ax = plt.subplots(figsize=(9, 4))
+fig, ax = plt.subplots(figsize=(8, 5))
 shap.plots.waterfall(
     shap.Explanation(
         values=shap_values[0],
