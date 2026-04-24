@@ -104,7 +104,7 @@ st.markdown(
 explainer = shap.LinearExplainer(modelo, X_ref_scaled)
 shap_values = explainer.shap_values(input_scaled)
 
-fig, ax = plt.subplots(figsize=(10, 6))
+fig, ax = plt.subplots(figsize=(9, 4))
 shap.plots.waterfall(
     shap.Explanation(
         values=shap_values[0],
