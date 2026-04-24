@@ -5,14 +5,14 @@ import pickle
 import shap
 import matplotlib.pyplot as plt
 
-# ── Configuración de la página ──────────────────────────────────────────
+# Configuración de la página
 st.set_page_config(
     page_title="Breast Cancer Classifier",
     page_icon="🔬",
     layout="wide"
 )
 
-# ── Cargar modelos ───────────────────────────────────────────────────────
+# Cargar modelos
 
 
 @st.cache_resource
@@ -26,7 +26,7 @@ def load_models():
 
 scaler, modelo = load_models()
 
-# ── Cargar datos de referencia para SHAP ────────────────────────────────
+# Cargar datos de referencia para SHAP
 
 
 @st.cache_data
@@ -39,7 +39,7 @@ def load_reference_data():
 X_ref = load_reference_data()
 X_ref_scaled = scaler.transform(X_ref)
 
-# ── Título ───────────────────────────────────────────────────────────────
+# Título
 st.title("🔬 Breast Cancer Classifier")
 st.markdown("""
 This tool predicts whether a breast tumor is **malignant or benign** based on 
@@ -51,7 +51,7 @@ cell nucleus measurements from a Fine Needle Aspiration (FNA) biopsy.
 
 st.divider()
 
-# ── Sidebar — inputs del usuario ─────────────────────────────────────────
+# Sidebar, inputs del usuario
 st.sidebar.header("🧬 Cell Nucleus Measurements")
 st.sidebar.markdown("Adjust the values based on the biopsy report.")
 
@@ -75,7 +75,7 @@ def user_input():
 
 input_df = user_input()
 
-# ── Predicción ────────────────────────────────────────────────────────────
+# Predicción
 input_scaled = scaler.transform(input_df)
 prediction = modelo.predict(input_scaled)[0]
 probability = modelo.predict_proba(input_scaled)[0]
@@ -96,7 +96,7 @@ with col2:
 
 st.divider()
 
-# ── SHAP local ────────────────────────────────────────────────────────────
+# SHAP local
 st.subheader("🔍 Why did the model predict this?")
 st.markdown(
     "The chart below shows which features pushed the prediction toward malignant or benign.")
