@@ -79,6 +79,6 @@ clinical context, from EDA to a deployable Streamlit app.
 - Results may not generalize to populations outside the original study
 
 ## Author
-Alejandro Robles
+Alejandro Robles  
 roblesliz.alejandro@gmail.com
 
